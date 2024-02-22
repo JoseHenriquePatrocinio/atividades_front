@@ -21,3 +21,40 @@
     </div>
   </body>
 </template>
+
+<style scoped>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1013cb;
+  color: #fff;
+  font-family: 'Roboto Mono', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 30px 50px;
+}
+
+.counter {
+  font-size: 60px;
+  margin-top: 10px;
+}
+
+@media (max-width: 580px) {
+  body {
+    flex-direction: column;
+  }
+}
+</style>
