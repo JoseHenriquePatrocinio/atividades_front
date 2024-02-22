@@ -22,6 +22,38 @@
   </body>
 </template>
 
+<script>
+export default {
+  name: 'ContadorView',
+  mounted() {
+    this.counters();
+  },
+  methods: {
+    counters() {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200;
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const inc = target / speed;
+
+        const updateCount = () => {
+          const count = +counter.innerText;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + inc);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCount();
+      });
+    }
+  }
+};
+</script>
+
 <style scoped>
 * {
   box-sizing: border-box;
