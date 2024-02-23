@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/contador">Contador de incremento</router-link>
+    <router-link to="/">Home</router-link>
   </nav>
   <router-view/>
 </template>
