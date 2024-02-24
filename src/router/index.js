@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ContadorView from '../views/ContadorView.vue'
 import FaqView from '../views/FaqView.vue'
+import CliqueParaCurtirView from '../views/CliqueParaCurtirView.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/faq',
     name: 'faq',
     component: FaqView
+  },
+  {
+    path: '/cliqueparacurtir',
+    name: 'cliqueparacurtir',
+    component: CliqueParaCurtirView
   }
 ]
 
