@@ -34,6 +34,13 @@
         <h2>Barra de navegação Mobile</h2>
       </div>
     </router-link>
+
+    <router-link to="/calculadora" class="card">
+      <div>
+        <img class="card-img-top" src="/img/calculadora.png" alt="FAQ">
+        <h2>Barra de navegação Mobile</h2>
+      </div>
+    </router-link>
   </div>
 </template>
 
