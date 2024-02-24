@@ -1,31 +1,81 @@
 <template>
-    <body>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
+    <div class="container">
         <header class="header">
-            <h4 class="title">Filtrar Usuário</h4>
-            <small class="subtitle">Pesquise por nome e/ou localização</small>
-            <input type="text" id="filter" placeholder="Search">
+            <div class="filter-container">
+                <h4 class="title">Filtrar Usuário</h4>
+                <small class="subtitle">Pesquise por nome e/ou localização</small>
+                <input type="text" id="filter" placeholder="Search" v-model="searchTerm" />
+            </div>
         </header>
 
-        <ul id="result" class="user-list">
-            <li>
-                <h3>Carregando...</h3>
+        <ul class="user-list">
+            <li v-for="user in filteredUsers" :key="user.id">
+                <img :src="user.picture.large" :alt="`${user.name.first} ${user.name.last}`" />
+                <div class="user-info">
+                    <h4>{{ user.name.first }} {{ user.name.last }}</h4>
+                    <p>{{ user.location.city }}, {{ user.location.country }}</p>
+                </div>
+            </li>
+            <li v-if="filteredUsers.length === 0">
+                <h3>Nenhum usuário encontrado.</h3>
             </li>
         </ul>
 
         <div class="dadosDownload">
-            <a href="https://www.zippyshare.day/download/AEzTJ3SNLpq7WCq/0l5YzMwwYmyOA/dados.zip" download="dados.zip">
+            <a :href="downloadLink" download="dados.zip">
                 <i class="fas fa-download"></i> Baixar Arquivo Json
             </a>
         </div>
-    </body>
+    </div>
 </template>
-
+  
 <script>
 export default {
     name: "FiltroDeUsuariosView",
-}
+    data() {
+        return {
+            users: [],
+            searchTerm: "",
+        };
+    },
+    computed: {
+        filteredUsers() {
+            return this.users.filter((user) =>
+                this.matchSearchTerm(user, this.searchTerm)
+            );
+        },
+        downloadLink() {
+            return "https://www.zippyshare.day/download/AEzTJ3SNLpq7WCq/0l5YzMwwYmyOA/dados.zip";
+        },
+    },
+    methods: {
+        async fetchData() {
+            try {
+                const res = await fetch(
+                    "https://run.mocky.io/v3/8ef8a5e2-8edf-4911-a51f-a81e7112f7ad"
+                );
+                const { results } = await res.json();
+                this.users = results;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        },
+        matchSearchTerm(user, term) {
+            const userFullName = `${user.name.first} ${user.name.last}`;
+            const userLocation = `${user.location.city}, ${user.location.country}`;
+            return (
+                userFullName.toLowerCase().includes(term.toLowerCase()) ||
+                userLocation.toLowerCase().includes(term.toLowerCase())
+            );
+        },
+    },
+    watch: {
+        searchTerm: "fetchData",
+    },
+    created() {
+        this.fetchData();
+    },
+};
 </script>
 
 <style scoped>

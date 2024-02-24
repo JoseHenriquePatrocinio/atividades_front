@@ -23,8 +23,8 @@
 
     <router-link to="/filtrousuarios" class="card">
       <div>
-        <img class="card-img-top" src="/img/filtar.png" alt="FAQ">
-        <h2>Clique para Curtir</h2>
+        <img class="card-img-top" src="/img/filtrar.png" alt="FAQ">
+        <h2>Filtro de usuário</h2>
       </div>
     </router-link>
   </div>
