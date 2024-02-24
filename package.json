@@ -1,11 +1,11 @@
 {
   "name": "atividades_front",
   "version": "0.1.0",
-  "private": true,
+  "main": "main.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "npm run serve"
+    "start": "node main.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
