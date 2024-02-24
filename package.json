@@ -4,7 +4,7 @@
   "main": "main.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "npm run build",
+    "build": "vue-cli-service build",
     "start": "node main.js"
   },
   "dependencies": {
