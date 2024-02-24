@@ -74,6 +74,26 @@
     </body>
 </template>
 
+<script>
+export default {
+    name: 'FaqView',
+    methods: {
+        toggleFAQs() {
+            const toggles = document.querySelectorAll('.faq-toggle');
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.parentNode.classList.toggle('active');
+                });
+            });
+        }
+    },
+    mounted() {
+        this.toggleFAQs();
+    }
+};
+</script>
+
 <style scoped>
 * {
     box-sizing: border-box;
