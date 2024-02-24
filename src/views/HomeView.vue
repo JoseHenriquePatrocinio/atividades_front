@@ -6,6 +6,13 @@
         <h2>Contador incremental</h2>
       </div>
     </router-link>
+
+    <router-link to="/faq" class="card">
+      <div>
+        <img class="card-img-top" src="/img/faq.png" alt="FAQ">
+        <h2>Perguntas frequentes</h2>
+      </div>
+    </router-link>
   </div>
 </template>
 
