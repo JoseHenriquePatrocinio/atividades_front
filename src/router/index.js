@@ -4,6 +4,7 @@ import ContadorView from '../views/ContadorView.vue'
 import FaqView from '../views/FaqView.vue'
 import CliqueParaCurtirView from '../views/CliqueParaCurtirView.vue'
 import FiltroDeUsuariosView from '../views/FiltroDeUsuariosView.vue'
+import BarraNavegacaoView from '../views/BarraNavegacaoView.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/filtrousuarios',
     name: 'filtrousuarios',
     component: FiltroDeUsuariosView
+  },
+  {
+    path: '/barranavegacao',
+    name: 'barranavegacao',
+    component: BarraNavegacaoView
   }
 ]
 

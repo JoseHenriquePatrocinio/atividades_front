@@ -27,6 +27,13 @@
         <h2>Filtro de usuário</h2>
       </div>
     </router-link>
+
+    <router-link to="/barranavegacao" class="card">
+      <div>
+        <img class="card-img-top" src="/img/mobile.png" alt="FAQ">
+        <h2>Barra de navegação Mobile</h2>
+      </div>
+    </router-link>
   </div>
 </template>
 
