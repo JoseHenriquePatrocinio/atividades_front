@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ContadorView from '../views/ContadorView.vue'
 import FaqView from '../views/FaqView.vue'
 import CliqueParaCurtirView from '../views/CliqueParaCurtirView.vue'
+import FiltroDeUsuariosView from '../views/FiltroDeUsuariosView.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/cliqueparacurtir',
     name: 'cliqueparacurtir',
     component: CliqueParaCurtirView
+  },
+  {
+    path: '/filtrousuarios',
+    name: 'filtrousuarios',
+    component: FiltroDeUsuariosView
   }
 ]
 
