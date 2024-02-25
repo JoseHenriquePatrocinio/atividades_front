@@ -1,5 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ContadorView from '../views/ContadorView.vue'
+import FaqView from '../views/FaqView.vue'
+import CliqueParaCurtirView from '../views/CliqueParaCurtirView.vue'
+import FiltroDeUsuariosView from '../views/FiltroDeUsuariosView.vue'
+import BarraNavegacaoView from '../views/BarraNavegacaoView.vue'
+import CalculadoraView from '../views/CalculadoraView.vue'
+import ProjetoNotasView from '../views/ProjetoNotasView.vue'
+import SlidesVerticaisView from '../views/SlidesVerticaisView.vue'
 
 const routes = [
   {
@@ -8,12 +16,44 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/contador',
+    name: 'contador',
+    component: ContadorView
+  },
+  {
+    path: '/faq',
+    name: 'faq',
+    component: FaqView
+  },
+  {
+    path: '/cliqueparacurtir',
+    name: 'cliqueparacurtir',
+    component: CliqueParaCurtirView
+  },
+  {
+    path: '/filtrousuarios',
+    name: 'filtrousuarios',
+    component: FiltroDeUsuariosView
+  },
+  {
+    path: '/barranavegacao',
+    name: 'barranavegacao',
+    component: BarraNavegacaoView
+  },
+  {
+    path: '/calculadora',
+    name: 'calculadora',
+    component: CalculadoraView
+  },
+  {
+    path: '/projetonotas',
+    name: 'projetonotas',
+    component: ProjetoNotasView
+  },
+  {
+    path: '/slidesverticais',
+    name: 'slidesverticais',
+    component: SlidesVerticaisView
   }
 ]
 
