@@ -6,6 +6,7 @@ import CliqueParaCurtirView from '../views/CliqueParaCurtirView.vue'
 import FiltroDeUsuariosView from '../views/FiltroDeUsuariosView.vue'
 import BarraNavegacaoView from '../views/BarraNavegacaoView.vue'
 import CalculadoraView from '../views/CalculadoraView.vue'
+import ProjetoNotasView from '../views/ProjetoNotasView.vue'
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: '/calculadora',
     name: 'calculadora',
     component: CalculadoraView
+  },
+  {
+    path: '/projetonotas',
+    name: 'projetonotas',
+    component: ProjetoNotasView
   }
 ]
 
