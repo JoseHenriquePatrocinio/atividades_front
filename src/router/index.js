@@ -7,6 +7,7 @@ import FiltroDeUsuariosView from '../views/FiltroDeUsuariosView.vue'
 import BarraNavegacaoView from '../views/BarraNavegacaoView.vue'
 import CalculadoraView from '../views/CalculadoraView.vue'
 import ProjetoNotasView from '../views/ProjetoNotasView.vue'
+import SlidesVerticaisView from '../views/SlidesVerticaisView.vue'
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/projetonotas',
     name: 'projetonotas',
     component: ProjetoNotasView
+  },
+  {
+    path: '/slidesverticais',
+    name: 'slidesverticais',
+    component: SlidesVerticaisView
   }
 ]
 

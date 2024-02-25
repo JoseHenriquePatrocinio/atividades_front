@@ -48,6 +48,13 @@
         <h2>Projeto de notas</h2>
       </div>
     </router-link>
+
+    <router-link to="/slidesverticais" class="card">
+      <div>
+        <img class="card-img-top" src="/img/slides.png" alt="notas">
+        <h2>Slides Verticais</h2>
+      </div>
+    </router-link>
   </div>
 </template>
 
