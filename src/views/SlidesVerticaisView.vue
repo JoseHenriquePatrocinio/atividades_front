@@ -49,104 +49,138 @@
 
 <script>
 export default {
-    name: "SlidesVerticaisView"
+    name: "SlidesVerticaisView",
+
+    mounted() {
+        const sliderContainer = document.querySelector('.slider-container')
+        const slideRight = document.querySelector('.right-slide')
+        const slideLeft = document.querySelector('.left-slide')
+        const upButton = document.querySelector('.up-button')
+        const downButton = document.querySelector('.down-button')
+        const slidesLength = slideRight.querySelectorAll('div').length
+
+        let activeSlideIndex = 0
+
+        slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
+
+        upButton.addEventListener('click', () => changeSlide('up'))
+        downButton.addEventListener('click', () => changeSlide('down'))
+
+        const changeSlide = (direction) => {
+            const sliderHeight = sliderContainer.clientHeight
+            if (direction === 'up') {
+                activeSlideIndex++
+                if (activeSlideIndex > slidesLength - 1) {
+                    activeSlideIndex = 0
+                }
+            } else if (direction === 'down') {
+                activeSlideIndex--
+                if (activeSlideIndex < 0) {
+                    activeSlideIndex = slidesLength - 1
+                }
+            }
+
+            slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
+            slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
+        }
+    }
 }
 </script>
 
 <style scoped>
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
 }
 
 .slider-container {
-  position: relative;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 .left-slide {
-  height: 100%;
-  width: 35%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 35%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
 }
 
-.left-slide > div {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+.left-slide>div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 }
 
 .left-slide h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-  margin-top: -30px;
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: -30px;
 }
 
 .right-slide {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 35%;
-  width: 65%;
-  transition: transform 0.5s ease-in-out;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 65%;
+    transition: transform 0.5s ease-in-out;
 }
 
-.right-slide > div {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 100%;
-  width: 100%;
+.right-slide>div {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
 }
 
 button {
-  background-color: #fff;
-  border: none;
-  color: #aaa;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 15px;
+    background-color: #fff;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px;
 }
 
 button:hover {
-  color: #222;
+    color: #222;
 }
 
 button:focus {
-  outline: none;
+    outline: none;
 }
 
 .slider-container .action-buttons button {
-  position: absolute;
-  left: 35%;
-  top: 50%;
-  z-index: 100;
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
 }
 
 .slider-container .action-buttons .down-button {
-  transform: translateX(-100%);
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .slider-container .action-buttons .up-button {
-  transform: translateY(-100%);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+    transform: translateY(-100%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 </style>
